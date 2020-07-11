@@ -1,8 +1,8 @@
-﻿using BlazorApexCharts.Configuration;
+﻿using ApexCharts.Blazor.Configuration;
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace BlazorApexCharts.Interop
+namespace ApexCharts.Blazor.Interop
 {
     public static class ApexChartsInterop
     {

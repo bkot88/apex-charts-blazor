@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BlazorApexCharts.Configuration
+namespace ApexCharts.Blazor.Configuration
 {
     public static class ChartOptionsBuilder
     {

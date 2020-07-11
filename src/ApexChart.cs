@@ -1,11 +1,11 @@
-﻿using BlazorApexCharts.Configuration;
-using BlazorApexCharts.Interop;
+﻿using ApexCharts.Blazor.Configuration;
+using ApexCharts.Blazor.Interop;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace BlazorApexCharts
+namespace ApexCharts.Blazor
 {
     public class ApexChart : ComponentBase
     {

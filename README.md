@@ -3,7 +3,7 @@ An incomplete Blazor JsInterop around Apex Charts. Nuget package coming soon..
 
 ## Getting Started
 1. Reference BlazorApexCharts in your project
-2. Add javascript script references to your index.html (client-side)
+2. Add javascript script references to your `index.html` (client-side)
 ```html
 ...
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -28,4 +28,14 @@ An incomplete Blazor JsInterop around Apex Charts. Nuget package coming soon..
         Options.Xaxis.Type = null;
     }
 }
+```
+4. Temporary work-around to `JsonSerializerOptions` to ensure we don't serialise null values when passing C# objects to `IJSRuntime` in. Add the snippet in `Program.cs` until microsoft allow us to modify it.
+```csharp
+...
+var host = builder.Build();
+var jsRuntime = host.Services.GetRequiredService<IJSRuntime>();
+var prop = typeof(JSRuntime).GetProperty("JsonSerializerOptions", BindingFlags.NonPublic | BindingFlags.Instance);
+JsonSerializerOptions value = (JsonSerializerOptions)Convert.ChangeType(prop.GetValue(jsRuntime, null), typeof(JsonSerializerOptions));
+value.IgnoreNullValues = true;
+...
 ```

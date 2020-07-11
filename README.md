@@ -1,21 +1,20 @@
 # blazor-apex-charts
-JsInterop around Apex Charts
+An incomplete Blazor JsInterop around Apex Charts. Nuget package coming soon..
 
 ## Getting Started
 1. Reference BlazorApexCharts in your project
-2. Add script references in your index.html
+2. Add javascript script references to your index.html (client-side)
 ```html
-    ...
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="_content/BlazorApexCharts/apexcharts.interop.js"></script>
-    ...
+...
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="_content/BlazorApexCharts/apexcharts.interop.js"></script>
+...
 ```
 3. Add component in your .razor page
-```html
-    <BlazorApexCharts.ApexChartComponent ChartId="sample-chart" Options="Options" />
-```
-4. Build an instance of Options
 ```csharp
+<BlazorApexCharts.ApexChartComponent ChartId="sample-chart" Options="Options" />
+
+@code {
     public BlazorApexCharts.Configuration.ChartOptions Options { get; set; }
 
     protected override void OnInitialized()
@@ -28,4 +27,5 @@ JsInterop around Apex Charts
         // default is set to datetime, we remove here
         Options.Xaxis.Type = null;
     }
+}
 ```
